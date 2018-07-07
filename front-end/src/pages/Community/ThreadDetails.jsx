@@ -59,7 +59,7 @@ class ThreadDetails extends Component {
               {T.translate('thread.detail.createPost')}
             </Link>
           </h5>
-          <PostList threadId={this.threadId} />
+          <PostList threadId={this.threadId} communityId={this.state.resource.communityId} />
         </div>
       </div>
     );

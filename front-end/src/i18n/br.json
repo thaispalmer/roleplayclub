@@ -169,7 +169,9 @@
       }
     },
     "detail": {
-      "createdAt": "Criado em {timestamp}"
+      "createdAt": "Publicado em {timestamp}",
+      "updatedAt": "Editado em {timestamp}",
+      "editButton": "Editar postagem"
     }
   },
 

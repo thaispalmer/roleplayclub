@@ -27,7 +27,12 @@ export class PostList extends Component {
       );
     } else {
       content = this.state.posts.map(post => (
-        <Post key={post.id} data={post} />
+        <Post
+          key={post.id}
+          data={post}
+          threadId={this.props.threadId}
+          communityId={this.props.communityId}
+        />
       ));
     }
     return (
@@ -50,6 +55,7 @@ export class PostList extends Component {
 
 PostList.propTypes = {
   threadId: PropTypes.string.isRequired,
+  communityId: PropTypes.string.isRequired,
 };
 
 export default PostList;
