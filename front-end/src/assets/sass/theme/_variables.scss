@@ -1,0 +1,29 @@
+// Theme's custom variables
+
+
+//
+// Color system
+//
+$turquoise:     #1abc9c !default;
+$midnight-blue: #2c3e50 !default;
+$emerald:       #2ecc71 !default;
+$peter-river:   #3498db !default;
+$sun-flower:    #f1c40f !default;
+$alizarin:      #e74c3c !default;
+
+$colors: () !default;
+$colors: map-merge((
+  "turquoise":     $turquoise,
+  "midnight-blue": $midnight-blue,
+  "emerald":       $emerald,
+  "peter-river":   $peter-river,
+  "sun-flower":    $sun-flower,
+  "alizarin":      $alizarin,
+), $colors);
+
+$primary:   $turquoise !default;
+$secondary: $midnight-blue !default;
+$success:   $emerald !default;
+$danger:    $alizarin !default;
+$warning:   $sun-flower !default;
+$info:      $peter-river !default;

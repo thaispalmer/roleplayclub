@@ -1,0 +1,36 @@
+{
+  "name": "thread",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "TimeStamp": {
+      "required": false,
+      "validateUpsert": true
+    },
+    "Counts": true
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "posts": {
+      "type": "hasMany",
+      "model": "post",
+      "foreignKey": ""
+    },
+    "community": {
+      "type": "belongsTo",
+      "model": "community",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

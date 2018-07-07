@@ -1,0 +1,10 @@
+.pagination-rounded {
+  .page-item:first-child > .page-link {
+    border-top-left-radius: 250px !important;
+    border-bottom-left-radius: 250px !important;
+  }
+  .page-item:last-child > .page-link {
+    border-top-right-radius: 250px !important;
+    border-bottom-right-radius: 250px !important;
+  }
+}

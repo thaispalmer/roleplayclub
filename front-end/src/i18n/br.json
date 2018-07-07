@@ -1,0 +1,273 @@
+{
+  "error": {
+    "notFound": {
+      "title": "Página não encontrada",
+      "message": "Desculpe, a página que você solicitou não foi encontrada."
+    },
+    "unknown": {
+      "title": "Erro desconhecido",
+      "message": "Desculpe, não pudemos processar este erro. Tente novamente mais tarde."
+    },
+    "statusCode": {
+      "message": "Ocorreu um erro: {error}",
+      "default": "Desculpe, não pudemos processar este erro. Tente novamente mais tarde.",
+      "0": "Não foi possível se comunicar com o servidor. Tente novamente mais tarde.",
+      "400": "Verifique se todos os campos estão preenchidos e tente novamente."
+    }
+  },
+  "menu": {
+    "logout": "Sair ({name})",
+    "dashboard": "Início",
+    "communities": {
+      "list": "Comunidades"
+    }
+  },
+  "defaults": {
+    "timestamp": {
+      "dateTime": "DD/MM/YYYY \\à\\s HH:mm:ss"
+    },
+    "pagination": {
+      "navigation": "Navegação entre páginas",
+      "next": "Próxima página",
+      "previous": "Página anterior",
+      "firstPage": "Primeira página",
+      "lastPage": "Última página"
+    },
+    "yes": "Sim",
+    "no": "Não"
+  },
+  "login": {
+    "title": "Entre com suas credenciais",
+    "loginButton": "Entrar",
+    "rememberMe": "Lembrar de mim",
+    "forgotPassword": "Esqueceu sua senha?",
+    "badCredentials": "Verifique seu usuário e senha e tente novamente."
+  },
+  "signUp": {
+    "title": "Cadastre-se agora",
+    "signUpButton": "Cadastrar",
+    "hasAccount": "Já possui cadastro?",
+    "errors": {
+      "username": {
+        "uniqueness": "Este nome de usuário já está sendo usado."
+      },
+      "email": {
+        "uniqueness": "Este email já está sendo usado."
+      }
+    }
+  },
+  "logout": {
+    "title": "Você saiu da conta",
+    "message": "Você pode fechar esta página agora.\nAté a próxima!",
+    "loginButton": "Voltar para o Login"
+  },
+  "forgotPassword": {
+    "title": "Esqueceu sua senha?",
+    "description": "Por favor, digite o seu e-email abaixo, para que possamos te enviar instruções para redefinir a sua senha.",
+    "sendButton": "Enviar e-mail",
+    "notFound": "Este e-email não foi encontrado nos nossos registros, verifique e tente novamente.",
+    "successMessageTitle": "Solicitação de senha bem sucedida.",
+    "successMessageText": "Agora, verifique seu e-mail para mais instruções.",
+    "backButton": "Voltar"
+  },
+  "user": {
+    "fields": {
+      "name": "Nome",
+      "username": "Usuário",
+      "password": "Senha",
+      "email": "Endereço de e-mail"
+    },
+    "detail": {
+      "createdAt": "Membro desde {timestamp}"
+    }
+  },
+  "dashboard": {
+    "title": "Olá, {name}!",
+    "caption": "Bem vindo ao Roleplay Club.",
+    "createCommunity": "Criar comunidade",
+    "viewCommunities": "Ver todas as comunidades"
+  },
+  "community": {
+    "fields": {
+      "title": "Título",
+      "description": "Descrição",
+      "threads": "Tópicos",
+      "hidden": "Comunidade Privada"
+    },
+    "tooltips": {
+      "viewCommunity": "Ver informações da comunidade"
+    },
+    "form": {
+      "title": {
+        "create": "Nova Comunidade",
+        "update": "Editar Comunidade"
+      },
+      "cancelButton": "Cancelar",
+      "saveButton": {
+        "create": "Criar Comunidade",
+        "update": "Salvar Modificações"
+      }
+    },
+    "detail": {
+      "editTooltip": "Editar Comunidade",
+      "createThread": "Criar Tópico"
+    },
+    "list": {
+      "title": "Todas as comunidades",
+      "createCommunity": "Criar Comunidade",
+      "threadsCount": "({count} tópicos)",
+      "createdAt": "Criado em {timestamp}"
+    },
+    "noCommunities": "Não há comunidades cadastradas no momento.",
+    "loadingCommunities": "Carregando comunidades"
+  },
+  "thread": {
+    "fields": {
+      "title": "Título",
+      "posts": "Postagens"
+    },
+    "tooltips": {
+      "viewThread": "Ver tópico"
+    },
+    "noThreads": "Esta comunidade não possui tópicos abertos no momento.",
+    "loadingThreads": "Carregando tópicos...",
+    "form": {
+      "title": {
+        "create": "Novo Tópico",
+        "update": "Editar Tópico"
+      },
+      "cancelButton": "Cancelar",
+      "saveButton": {
+        "create": "Criar Tópico",
+        "update": "Salvar Modificações"
+      }
+    },
+    "list": {
+      "postsCount": "({count} postagens)",
+      "createdAt": "Criado em {timestamp}"
+    },
+    "detail": {
+      "editTooltip": "Editar Tópico",
+      "createPost": "Nova Postagem"
+    }
+  },
+  "post": {
+    "fields": {
+      "message": "Mensagem"
+    },
+    "noPosts": "Este tópico ainda não possui nenhuma postagem.",
+    "loadingPosts": "Carregando postagens...",
+    "form": {
+      "title": {
+        "create": "Nova Postagem",
+        "update": "Editar Postagem"
+      },
+      "cancelButton": "Cancelar",
+      "saveButton": {
+        "create": "Criar Postagem",
+        "update": "Salvar Modificações"
+      }
+    },
+    "detail": {
+      "createdAt": "Criado em {timestamp}"
+    }
+  },
+
+
+
+
+  "billing": {
+    "fields": {
+      "amount": "Amount",
+      "dueDatetime": "Due Date",
+      "isSettled": "Is Settled",
+      "shipment": "Shipment",
+      "direction": "Direction",
+      "type": "Type",
+      "types": {
+        "CoD": "CoD",
+        "Fee": "Fee"
+      },
+      "directions": {
+        "Inbound": "Inbound",
+        "Outbound": "Outbound"
+      }
+    },
+    "title": "Billing",
+    "caption": "See all your Cash Instances below",
+    "viewShipmentTooltip": "View details for shipment {trackingId}"
+  },
+  "shipments": {
+    "fields": {
+      "trackingId": "Tracking ID",
+      "senderShipmentId": "Sender Shipment ID",
+      "senderName": "Sender Name",
+      "senderAddress": "Sender Address",
+      "senderGeoPoint":  {
+        "lat": "Sender Geo Point Latitude",
+        "lng": "Sender Geo Point Longitude"
+      },
+      "senderPhone": "Sender Phone",
+      "recipientName": "Recipient Name",
+      "recipientAddress": "Recipient Address",
+      "recipientGeoPoint": {
+        "lat": "Recipient Geo Point Latitude",
+        "lng": "Recipient Geo Point Longitude"
+      },
+      "recipientPhone": "Recipient Phone",
+      "pickupDatetime": "Pickup Datetime",
+      "deliveryDatetime": "Delivery Datetime",
+      "numberOfPackages": "Number of Packages",
+      "cashToCollectOnDelivery": "Cash To Collect On Delivery",
+      "recipientAddressConfirmed": "Recipient Address Confirmed",
+      "recipientAddressConfirmationDatetime": "Recipient Address Confirmation Datetime",
+      "orderInRoute": "Order in Route",
+      "status": "Status",
+      "route": "Route",
+      "senderAreaId": "Sender Area ID",
+      "recipientAreaId": "Recipient Area ID",
+      "partnerId": "Partner ID",
+      "senderArea": "Sender Area",
+      "recipientArea": "Recipient Area",
+      "partner": "Partner",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "statuses": {
+        "Created": "Created",
+        "Picked Up": "Picked Up",
+        "On Route": "On Route",
+        "Delivered": "Delivered",
+        "Canceled": "Canceled"
+      }
+    },
+    "list": {
+      "title": "Shipment Management",
+      "caption": "See all your registered shipments below",
+      "actions": "Actions",
+      "viewTooltip": "View",
+      "editTooltip": "Edit"
+    },
+    "form": {
+      "title": "Updating Shipment",
+      "caption": "{trackingId}",
+      "routeSelectLabel": "#{routeId} - Starting at {routeStartDatetime}",
+      "cancelButton": "Cancel",
+      "updateButton": "Save Shipment"
+    },
+    "detail": {
+      "title": "Shipment Details",
+      "caption": "{trackingId}",
+      "route": "#{routeId} - Starting at {routeStartDatetime}",
+      "backButton": "Back to Shipment List",
+      "editButton": "Update Shipment"
+    },
+    "bulkUpload": {
+      "title": "Bulk Upload Shipments",
+      "caption": "Import all your shipments with ease using a CSV file",
+      "fileCaption": "Choose a file or drag it here.",
+      "fileInfo": "Please choose a file with .csv extension following the template file.",
+      "templateDownload": "Don't have the template? Click here to download.",
+      "uploadButton": "Upload Shipments"
+    }
+  }
+}
