@@ -19,7 +19,7 @@ export class Post extends Component {
               </small>
             </Col>
             <Col md={9}>
-              <p>{this.props.data.message}</p>
+              {this.props.data.message}
               <hr />
               <small className="text-muted">
                 {this.props.data.createdAt === this.props.data.updatedAt ?

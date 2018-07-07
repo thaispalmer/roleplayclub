@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import { FormGroup, Label, Input, Button } from 'reactstrap';
 import T from 'i18n-react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 import API from '../../components/API/API';
 import { AuthProvider } from '../../components/Auth/AuthProvider';
@@ -49,6 +51,21 @@ export default class CommunityForm extends Component {
       }
 
       this.setState({ resource: { ...this.state.resource, [name]: value } });
+    };
+
+    /**
+     * Callback for when user input some data on Quill editor.
+     * It saves the data in their component state.
+     * @param name
+     * @param value
+     */
+    this.handleQuillChange = (name, value) => {
+      this.setState({
+        resource: {
+          ...this.state.resource,
+          [name]: value,
+        },
+      });
     };
 
     /**
@@ -125,12 +142,24 @@ export default class CommunityForm extends Component {
                   </Input>
                 </FormGroup>
               );
+            } else if (propertyName === 'description') {
+              return (
+                <FormGroup key={propertyName}>
+                  <Label>{T.translate(`community.fields.${propertyName}`)}</Label>
+                  <ReactQuill
+                    value={this.state.resource[propertyName] || ''}
+                    onChange={(value) => {
+                      this.handleQuillChange(propertyName, value);
+                    }}
+                  />
+                </FormGroup>
+              );
             }
             return (
               <FormGroup key={propertyName}>
                 <Label>{T.translate(`community.fields.${propertyName}`)}</Label>
                 <Input
-                  type={propertyName === 'description' ? 'textarea' : 'text'}
+                  type="text"
                   name={propertyName}
                   value={this.state.resource[propertyName] || ''}
                   onChange={(event) => {

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
-import { FormGroup, Label, Input, Button } from 'reactstrap';
+import { FormGroup, Button, Row, Col } from 'reactstrap';
 import T from 'i18n-react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 import API from '../../components/API/API';
 import { AuthProvider } from '../../components/Auth/AuthProvider';
@@ -24,31 +26,21 @@ export default class PostForm extends Component {
         threadId: this.threadId,
         userId: new AuthProvider().getUser().id,
       },
-      hiddenPropertyNamesOnForm: ['id', 'threadId', 'userId', 'createdAt', 'updatedAt'],
     };
 
     /**
-     * Callback for when user input some data on form fields.
+     * Callback for when user input some data on Quill editor.
      * It saves the data in their component state.
-     * @param event
+     * @param name
+     * @param value
      */
-    this.handleInputChange = (event) => {
-      const { target } = event;
-      const { name, type } = target;
-      let { value } = target;
-
-      switch (type) {
-        case 'number':
-          value = parseFloat(target.value);
-          break;
-        case 'checkbox':
-          value = target.checked;
-          break;
-        default:
-          break;
-      }
-
-      this.setState({ resource: { ...this.state.resource, [name]: value } });
+    this.handleQuillChange = (name, value) => {
+      this.setState({
+        resource: {
+          ...this.state.resource,
+          [name]: value,
+        },
+      });
     };
 
     /**
@@ -104,24 +96,18 @@ export default class PostForm extends Component {
         <h3 className="text-secondary font-weight-bold mt-3">{T.translate(`post.form.title.${this.isNewRecord ? 'create' : 'update'}`)}</h3>
         <hr />
         <form onSubmit={event => this.handleSubmit(event)}>
-          {Object.keys(this.state.resource).map((propertyName) => {
-            if (this.state.hiddenPropertyNamesOnForm.includes(propertyName)) {
-              return null;
-            }
-            return (
-              <FormGroup key={propertyName}>
-                <Label>{T.translate(`post.fields.${propertyName}`)}</Label>
-                <Input
-                  type="textarea"
-                  name={propertyName}
-                  value={this.state.resource[propertyName] || ''}
-                  onChange={(event) => {
-                    this.handleInputChange(event);
+          <Row>
+            <Col md={9} className="m-auto">
+              <FormGroup>
+                <ReactQuill
+                  value={this.state.resource.message || ''}
+                  onChange={(value) => {
+                    this.handleQuillChange('message', value);
                   }}
                 />
               </FormGroup>
-            );
-          })}
+            </Col>
+          </Row>
           <hr />
           <div className="clearfix text-center">
             <Link

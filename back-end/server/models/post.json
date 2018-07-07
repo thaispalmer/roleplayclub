@@ -6,6 +6,9 @@
     "validateUpsert": true
   },
   "mixins": {
+    "SanitizeHtml": {
+      "fields": ["message"]
+    },
     "TimeStamp": {
       "required": false,
       "validateUpsert": true
