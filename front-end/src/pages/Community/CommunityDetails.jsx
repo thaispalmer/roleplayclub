@@ -43,7 +43,7 @@ class CommunityDetails extends Component {
           <h5 className="text-secondary font-weight-light text-uppercase">
             {T.translate('community.fields.description')}
           </h5>
-          {this.state.resource.description}
+          <div dangerouslySetInnerHTML={{ __html: this.state.resource.description }} />
         </div>
 
         <div className="mb-4">

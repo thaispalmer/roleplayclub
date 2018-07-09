@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import { FormGroup, Button, Row, Col } from 'reactstrap';
 import T from 'i18n-react';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
 
 import API from '../../components/API/API';
 import { AuthProvider } from '../../components/Auth/AuthProvider';
+import { RichEditor } from '../../components/RichEditor/RichEditor';
 
 export default class PostForm extends Component {
   constructor(props) {
@@ -29,12 +28,12 @@ export default class PostForm extends Component {
     };
 
     /**
-     * Callback for when user input some data on Quill editor.
+     * Callback for when user input some data on rich text editor.
      * It saves the data in their component state.
      * @param name
      * @param value
      */
-    this.handleQuillChange = (name, value) => {
+    this.handleRichEditorChange = (name, value) => {
       this.setState({
         resource: {
           ...this.state.resource,
@@ -99,10 +98,10 @@ export default class PostForm extends Component {
           <Row>
             <Col md={9} className="m-auto">
               <FormGroup>
-                <ReactQuill
+                <RichEditor
                   value={this.state.resource.message || ''}
                   onChange={(value) => {
-                    this.handleQuillChange('message', value);
+                    this.handleRichEditorChange('message', value);
                   }}
                 />
               </FormGroup>
