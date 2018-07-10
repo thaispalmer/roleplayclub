@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import { FormGroup, Label, Input, Button } from 'reactstrap';
 import T from 'i18n-react';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
 
 import API from '../../components/API/API';
 import { AuthProvider } from '../../components/Auth/AuthProvider';
+import { RichEditor } from '../../components/RichEditor/RichEditor';
 
 export default class CommunityForm extends Component {
   constructor(props) {
@@ -54,12 +53,12 @@ export default class CommunityForm extends Component {
     };
 
     /**
-     * Callback for when user input some data on Quill editor.
+     * Callback for when user input some data on rich text editor.
      * It saves the data in their component state.
      * @param name
      * @param value
      */
-    this.handleQuillChange = (name, value) => {
+    this.handleRichEditorChange = (name, value) => {
       this.setState({
         resource: {
           ...this.state.resource,
@@ -146,10 +145,10 @@ export default class CommunityForm extends Component {
               return (
                 <FormGroup key={propertyName}>
                   <Label>{T.translate(`community.fields.${propertyName}`)}</Label>
-                  <ReactQuill
+                  <RichEditor
                     value={this.state.resource[propertyName] || ''}
                     onChange={(value) => {
-                      this.handleQuillChange(propertyName, value);
+                      this.handleRichEditorChange(propertyName, value);
                     }}
                   />
                 </FormGroup>
