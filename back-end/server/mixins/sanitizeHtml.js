@@ -9,12 +9,13 @@ module.exports = function(Model, options) {
         'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'p', 'a', 'u', 'b',
         'i', 'strong', 'em', 'strike', 'code', 'hr', 'br', 'div', 'table',
         'thead', 'caption', 'tbody', 'tr', 'th', 'td', 'pre', 'img', 'span',
-        'ul', 'ol', 'nl', 'li',
+        'ul', 'ol', 'nl', 'li', 'center', 'font',
       ],
       allowedAttributes: {
         '*': ['style', 'class'],
         a: ['href'],
-        img: ['src'],
+        img: ['src', 'alt', 'width', 'height'],
+        font: ['color', 'face', 'size'],
       },
       selfClosing: [
         'img', 'br', 'hr', 'area', 'base', 'basefont', 'input', 'link', 'meta',

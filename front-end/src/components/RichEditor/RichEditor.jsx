@@ -28,7 +28,7 @@ export class RichEditor extends Component {
     ];
 
     this.state = {
-      activeTab: 'editor',
+      activeTab: 'source',
     };
 
     this.toggle = (tab) => {
@@ -53,10 +53,18 @@ export class RichEditor extends Component {
         </NavItem>
         <NavItem>
           <NavLink
-            className={this.state.activeTab === 'code' ? 'active' : ''}
-            onClick={() => { this.toggle('code'); }}
+            className={this.state.activeTab === 'source' ? 'active' : ''}
+            onClick={() => { this.toggle('source'); }}
           >
-            Código HTML
+            Código Fonte
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink
+            className={this.state.activeTab === 'preview' ? 'active' : ''}
+            onClick={() => { this.toggle('preview'); }}
+          >
+            Pré-visualização
           </NavLink>
         </NavItem>
       </Nav>,
@@ -74,13 +82,20 @@ export class RichEditor extends Component {
             </TabPane>
           )
         }
-        <TabPane tabId="code">
+        <TabPane tabId="source">
           <Input
             type="textarea"
             value={this.props.value}
+            rows={10}
             onChange={(event) => {
               this.props.onChange(event.target.value);
             }}
+          />
+        </TabPane>
+        <TabPane tabId="preview">
+          <div
+            className="mt-3"
+            dangerouslySetInnerHTML={{ __html: this.props.value }}
           />
         </TabPane>
       </TabContent>,

@@ -18,7 +18,7 @@ export class Post extends Component {
                 {T.translate('user.detail.createdAt', { timestamp: <Moment format={T.translate('defaults.timestamp.dateTime')}>{this.props.data.user.createdAt}</Moment> })}
               </small>
             </Col>
-            <Col md={9}>
+            <Col md={9} style={{ overflowX: 'auto' }}>
               <div dangerouslySetInnerHTML={{ __html: this.props.data.message }} />
               <hr />
               <small className="text-muted">
