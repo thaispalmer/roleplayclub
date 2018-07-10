@@ -86,6 +86,7 @@ export class RichEditor extends Component {
             type="textarea"
             value={this.props.value}
             rows={10}
+            className="text-monospace"
             onChange={(event) => {
               this.props.onChange(event.target.value);
             }}
