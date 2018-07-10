@@ -1,34 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Nav, NavItem, NavLink, TabContent, TabPane, Input } from 'reactstrap';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import CKEditor from 'react-ckeditor-component';
 
 export class RichEditor extends Component {
   constructor(props) {
     super(props);
 
-    this.modules = {
-      toolbar: {
-        container: [
-          [{ header: [1, 2, false] }],
-          ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-          [{ list: 'ordered' }, { list: 'bullet' }, { indent: '-1' }, { indent: '+1' }],
-          ['link', 'image'],
-          ['clean'],
-        ],
-      },
-    };
-
-    this.formats = [
-      'header',
-      'bold', 'italic', 'underline', 'strike', 'blockquote',
-      'list', 'bullet', 'indent',
-      'link', 'image',
-    ];
-
     this.state = {
-      activeTab: 'source',
+      activeTab: 'editor',
+      content: this.props.value,
     };
 
     this.toggle = (tab) => {
@@ -37,6 +18,14 @@ export class RichEditor extends Component {
           activeTab: tab,
         });
       }
+    };
+
+    this.updateContent = (content) => {
+      this.setState({
+        content,
+      }, () => {
+        this.props.onChange(this.state.content);
+      });
     };
   }
 
@@ -48,7 +37,7 @@ export class RichEditor extends Component {
             className={this.state.activeTab === 'editor' ? 'active' : ''}
             onClick={() => { this.toggle('editor'); }}
           >
-            Editor
+            Editor Visual
           </NavLink>
         </NavItem>
         <NavItem>
@@ -69,19 +58,29 @@ export class RichEditor extends Component {
         </NavItem>
       </Nav>,
       <TabContent activeTab={this.state.activeTab}>
-        { /* Prevent Quill to bug value when editing html directly */
-          (this.state.activeTab === 'editor') && (
-            <TabPane tabId="editor">
-              <ReactQuill
-                theme="snow"
-                modules={this.modules}
-                formats={this.formats}
-                value={this.props.value}
-                onChange={this.props.onChange}
-              />
-            </TabPane>
-          )
-        }
+        {(this.state.activeTab === 'editor') && (
+          <TabPane tabId="editor">
+            <CKEditor
+              content={this.props.value}
+              config={{
+                allowedContent: true,
+                toolbarGroups: [
+                  { name: 'basicstyles', groups: ['basicstyles', 'cleanup'] },
+                  { name: 'insert', groups: ['insert'] },
+                  { name: 'links', groups: ['links'] },
+                  { name: 'clipboard', groups: ['undo', 'clipboard'] },
+                  { name: 'tools', groups: ['tools'] },
+                ],
+                removeButtons: 'Subscript,Superscript,Anchor,PasteFromWord,PasteText',
+              }}
+              events={{
+                change: (event) => {
+                  this.props.onChange(event.editor.getData());
+                },
+              }}
+            />
+          </TabPane>
+        )}
         <TabPane tabId="source">
           <Input
             type="textarea"
